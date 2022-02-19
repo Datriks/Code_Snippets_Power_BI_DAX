@@ -1,0 +1,5 @@
+Sales_QTDOPQ_% =
+DIVIDE (
+    [Sales_QTDOPQ],
+    [Sales_PQC]
+)

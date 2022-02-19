@@ -1,0 +1,12 @@
+Sales_PYMAT =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_MAT],
+        DATEADD (
+            Dates[Date],
+            -1,
+            YEAR
+        )
+    )
+)

@@ -1,0 +1,1 @@
+Profit Margin LY = CALCULATE([Profit_Margin %],SAMEPERIODLASTYEAR(Date_Table[Date]))

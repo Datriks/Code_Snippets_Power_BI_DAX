@@ -1,0 +1,21 @@
+Instead of using the Date table to select the day of
+the week, we can store the day of the week in a separate table
+that filters Sales without being related to Date. This way, the
+automatic filter removal over Date does not affect the existing filter
+over the day of the week. For example, the Day of Week table can
+be created as a calculated table:
+
+
+Day_Of_Week = SELECTCOLUMNS(Dates,
+		"Date",Dates[Date],
+		"Day_Of_Week",Dates[Day of Week])
+
+Slicing by Day of Week in the newly created table is compatible
+with any time intelligence calculation and respects any filter on the
+Day of Week table; this is because the two filters (Date and Day of
+the week) belong to two different tables.
+The additional table could consolidate any set of attributes
+required by specific business rules. We built an example with the
+day of the week, but you can use any other set of attributes (like
+working days, holidays, seasons), provided that such attributes
+depend on Order Date.

@@ -1,0 +1,34 @@
+Sales_AVG_3M =
+VAR Period3M =
+    CALCULATETABLE (
+        DATESINPERIOD (
+            Dates[Date],
+            MAX ( Dates[Date] ),
+            -3,
+            MONTH
+        ),
+        Dates[DateWithSales] = TRUE
+    )
+VAR FirstDayWithData =
+    CALCULATE (
+        MIN ( Sales[Order Date] ),
+        REMOVEFILTERS ()
+    )
+VAR FirstDayInPeriod =
+    MINX (
+        Period3M,
+        Dates[Date]
+    )
+VAR Result =
+    IF (
+        FirstDayWithData <= FirstDayInPeriod,
+        CALCULATE (
+            DIVIDE (
+                [Sales_Amount],
+                DISTINCTCOUNT ( Sales[Order Date] )
+            ),
+            Period3M
+        )
+    )
+RETURN
+    Result

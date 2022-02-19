@@ -1,0 +1,9 @@
+Sales_PMC =
+IF (
+    [ShowValueforDates]
+        && HASONEVALUE ( Dates[Year Month] ),
+    CALCULATE (
+        [Sales_Amount],
+        PREVIOUSMONTH ( Dates[Date] )
+    )
+)

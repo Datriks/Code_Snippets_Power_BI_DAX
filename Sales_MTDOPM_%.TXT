@@ -1,0 +1,5 @@
+Sales_MTDOPM_% =
+DIVIDE (
+    [Sales_MTDOPM],
+    [Sales_PMC]
+)

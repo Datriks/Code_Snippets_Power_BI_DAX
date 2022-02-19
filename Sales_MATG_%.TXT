@@ -1,0 +1,5 @@
+Sales_MATG_% =
+DIVIDE (
+    [Sales_MATG],
+    [Sales_PYMAT]
+)

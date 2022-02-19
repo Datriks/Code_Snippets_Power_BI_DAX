@@ -1,0 +1,25 @@
+Create new table: Product_Group
+
+Growth_Group   min   max
+Strong          0.4    3
+med              0     0.4
+weak            -3     0
+
+Create new Measure:
+
+Product_Group = CALCULATE(SELECTEDVALUE('Product Group'[Growth_Group]),
+	FILTER('Product Group',[YoY_Sales_Growth] > 'Product Group'[Min]&&
+		[YoY_Sales_Growth]<='Product Group'[Max]))
+
+# use theis formula for the scatter plot
+
+Prod_Grp_Sales = CALCULATE([Total_Sales_with_Disc], 
+	FILTER(VALUES(Sales_Data[Product_Code]),
+	COUNTROWS(FILTER(Product_Group,[YoY_Sales_Growth]>Product_Group[Min]&&
+	[YoY_Sales_Growth]<=Product_Group[Max]))>0))
+
+Create scatter plot: 
+Product code,
+legend = Growth_Group, 
+x = Prod_Grp_sales,
+y = profit_margin

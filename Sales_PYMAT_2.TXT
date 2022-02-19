@@ -1,0 +1,8 @@
+Sales_PYMAT_2 =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_MAT],
+        SAMEPERIODLASTYEAR ( Dates[Date] )
+    )
+)

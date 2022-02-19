@@ -1,0 +1,11 @@
+Sales_MTDOPM =
+VAR ValueCurrentPeriod = [Sales_MTD]
+VAR ValuePreviousPeriod = [Sales_PMC]
+VAR Result =
+    IF (
+        NOT ISBLANK ( ValueCurrentPeriod )
+            && ( ValuePreviousPeriod ),
+        ValueCurrentPeriod - ValuePreviousPeriod
+    )
+RETURN
+    Result

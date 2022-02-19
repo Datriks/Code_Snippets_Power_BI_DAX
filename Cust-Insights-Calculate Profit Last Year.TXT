@@ -1,0 +1,2 @@
+
+Profit_LY = CALCULATE([Total_Profit],SAMEPERIODLASTYEAR(Date_Table[Date]))

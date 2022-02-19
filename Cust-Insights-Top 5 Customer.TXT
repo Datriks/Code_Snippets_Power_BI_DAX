@@ -1,0 +1,4 @@
+Top_5_Cust = CALCULATE([Total_Sales_with_Disc], 
+	TOPN(5,ALL(Sales_Data[Customer ID]),
+	[Total_Sales_with_Disc],asc),
+	VALUES(Sales_Data[Customer ID]))
