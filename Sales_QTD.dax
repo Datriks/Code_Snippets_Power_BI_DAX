@@ -1,0 +1,8 @@
+﻿Sales_Qtd =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        DATESQTD ( Dates[Date] )
+    )
+)

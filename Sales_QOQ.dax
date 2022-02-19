@@ -1,0 +1,11 @@
+﻿Sales_QOQ =
+VAR ValueCurrentPeriod = [Sales_Amount]
+VAR ValuePreviousPeriod = [Sales_PQ]
+VAR Result =
+    IF (
+        NOT ISBLANK ( ValueCurrentPeriod )
+            && ( ValuePreviousPeriod ),
+        ValueCurrentPeriod - ValuePreviousPeriod
+    )
+RETURN
+    Result

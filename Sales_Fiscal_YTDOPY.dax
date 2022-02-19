@@ -1,0 +1,11 @@
+﻿Sales_Fiscal_YTDOPY =
+VAR ValueCurrentPeriod = [Sales_Fiscal_YTD]
+VAR ValuePreviousPeriod = [Sales_Fiscal_PYC]
+VAR Result =
+    IF (
+        NOT ISBLANK ( ValueCurrentPeriod )
+            && NOT ISBLANK ( ValuePreviousPeriod ),
+        ValueCurrentPeriod - ValuePreviousPeriod
+    )
+RETURN
+    Result

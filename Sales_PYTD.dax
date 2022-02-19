@@ -1,0 +1,15 @@
+﻿Sales_PYTD =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales YTD],
+        CALCULATETABLE (
+            DATEADD (
+                Dates[Date],
+                -1,
+                YEAR
+            ),
+            Dates[DateWithSales] = TRUE
+        )
+    )
+)

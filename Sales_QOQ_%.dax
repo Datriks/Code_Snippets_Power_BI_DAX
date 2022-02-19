@@ -1,0 +1,6 @@
+﻿Sales_QOQ_% =
+DIVIDE (
+    [Sales_QOQ],
+    [Sales_PQ],
+    0
+)

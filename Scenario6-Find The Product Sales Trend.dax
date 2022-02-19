@@ -1,0 +1,6 @@
+﻿Sales LM =
+CALCULATE ( [Total Sales], DATEADD ( Dates[Date], -1, MONTH ) )
+
+
+Monthly Sales Growth =
+DIVIDE ( [Total Sales], [Sales LM], 0 ) - 1

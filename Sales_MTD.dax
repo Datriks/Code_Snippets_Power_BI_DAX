@@ -1,0 +1,8 @@
+﻿Sales_MTD =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        DATESMTD ( Dates[Date] )
+    )
+)

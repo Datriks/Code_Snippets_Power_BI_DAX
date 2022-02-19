@@ -1,0 +1,15 @@
+﻿New_Customers =
+VAR CustomerTM =
+    VALUES ( Sales[Customer ID] )
+VAR PriorCustomers =
+    CALCULATETABLE (
+        VALUES ( Sales[Customer ID] ),
+        FILTER (
+            ALL ( Dates ),
+            Dates[Date]
+                > MIN ( Dates[Date] ) - [Time Period Value]
+                && Dates[Date] < MIN ( Dates[Date] )
+        )
+    )
+RETURN
+    COUNTROWS ( EXCEPT ( CustomerTM, PriorCustomers ) )

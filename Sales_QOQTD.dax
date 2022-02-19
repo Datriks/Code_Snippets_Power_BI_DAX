@@ -1,0 +1,11 @@
+﻿Sales_QOQTD = 
+VAR ValueCurrentPeriod = [Sales_QTD]
+VAR ValuePreviousPeriod = [Sales_PQTD]
+VAR Result =
+    IF (
+        NOT ISBLANK ( ValueCurrentPeriod )
+            && NOT ISBLANK ( ValuePreviousPeriod ),
+        ValueCurrentPeriod - ValuePreviousPeriod
+    )
+RETURN
+    Result

@@ -1,0 +1,11 @@
+﻿30_Day_Running_Total =
+CALCULATE (
+    [Total_Sales],
+    FILTER (
+        ALL ( 'Date' ),
+        'Date'[Date]
+            > MAX ( 'Date'[Date] ) - 30
+            && 'Date'[Date]
+                <= MAX ( 'Date'[Date] )
+    )
+)

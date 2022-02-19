@@ -1,0 +1,7 @@
+﻿top5products =
+CALCULATE (
+    [Total Sales],
+    TOPN ( 5, ALL ( 'Product'[Product Name] ), [Total Sales], ASC ),
+    VALUES ( 'Product'[Product Name] )
+)
+

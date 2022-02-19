@@ -1,0 +1,2 @@
+﻿Average Order =
+AVERAGEX ( Sales, [Total Sales] )

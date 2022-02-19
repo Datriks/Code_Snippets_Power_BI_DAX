@@ -1,0 +1,11 @@
+﻿Sales_PY_2 =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        CALCULATETABLE (
+            SAMEPERIODLASTYEAR ( Dates[Date] ),
+            Dates[DateWithSales] = TRUE
+        )
+    )
+)

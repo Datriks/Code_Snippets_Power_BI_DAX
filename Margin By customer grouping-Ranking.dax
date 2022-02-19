@@ -1,0 +1,17 @@
+﻿Margins_By_Customer_Grouping =
+VAR RankingDimension =
+    VALUES ( 'Customer Data'[Customer Name] )
+RETURN
+    CALCULATE (
+        [% Profit Margin],
+        FILTER (
+            RankingDimension,
+            COUNTROWS (
+                FILTER (
+                    'Customer Group',
+                    RANKX ( ALL ( 'Customer Data'[Customer Name] ), [Total Sales],, DESC ) > 'Customer Group'[Min]
+                        && RANKX ( ALL ( 'Customer Data'[Customer Name] ), [Total Sales],, DESC ) <= 'Customer Group'[Max]
+                )
+            ) > 0
+        )
+    )

@@ -1,0 +1,11 @@
+﻿Sales_Fiscal_YTD =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        DATESYTD (
+            Dates[Date],
+            "6-30"
+        )
+    )
+)

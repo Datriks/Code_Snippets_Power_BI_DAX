@@ -1,0 +1,31 @@
+﻿Sales_AVG_1Y =
+VAR Period1Y =
+    CALCULATETABLE (
+        DATESINPERIOD (
+            Dates[Date],
+            MAX ( Dates[Date] ),
+            -1,
+            YEAR
+        ),
+        Dates[DateWithSales] = TRUE
+    )
+VAR FirstDayWithData =
+    CALCULATE (
+        MIN ( Sales[Order Date] ),
+        REMOVEFILTERS ()
+    )
+VAR FirstDayInPeriod =
+    MINX (
+        Period1Y,
+        Dates[Date]
+    )
+VAR Result =
+    IF (
+        FirstDayWithData <= FirstDayInPeriod,
+        AVERAGEX (
+            Period1Y,
+            [Sales_Amount]
+        )
+    )
+RETURN
+    Result

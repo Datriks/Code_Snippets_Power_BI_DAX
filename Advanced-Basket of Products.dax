@@ -1,0 +1,2 @@
+﻿Basket of Products =
+DISTINCTCOUNT ( Sales[Product ID] )

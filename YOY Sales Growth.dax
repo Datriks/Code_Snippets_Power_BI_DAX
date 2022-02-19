@@ -1,0 +1,2 @@
+﻿YOY Sales Growth =
+DIVIDE ( [Total Sales] - [Sales_LY], [Sales_LY], 0 )

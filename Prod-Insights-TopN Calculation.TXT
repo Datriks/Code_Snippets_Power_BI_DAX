@@ -1,0 +1,7 @@
+Create new Measure
+
+Top_5_N = CALCULATE([Total_Sales_with_Disc], 
+	TOPN(5,ALL(Sales_Data[Product_Code]),[Total_Sales_with_Disc],asc),
+	VALUES(Sales_Data[Product_Code]))
+
+Create column chart of Product Code and Top_5_N

@@ -1,0 +1,5 @@
+﻿Sales_YTD_simple =
+CALCULATE (
+    [Sales_Amount],
+    DATESYTD ( Dates[Date] )
+)

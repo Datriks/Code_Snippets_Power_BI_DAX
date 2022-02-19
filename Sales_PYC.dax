@@ -1,0 +1,12 @@
+﻿Sales_PYC =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        PARALLELPERIOD (
+            Dates[Date],
+            -1,
+            YEAR
+        )
+    )
+)

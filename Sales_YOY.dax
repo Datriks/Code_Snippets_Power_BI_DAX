@@ -1,0 +1,11 @@
+﻿Sales_YOY =
+VAR ValueCurrentPeriod = [Sales_Amount]
+VAR ValuePreviousPeriod = [Sales_PY]
+VAR Result =
+    IF (
+        NOT ISBLANK ( ValueCurrentPeriod )
+            && NOT ISBLANK ( ValuePreviousPeriod ),
+        ValueCurrentPeriod - ValuePreviousPeriod
+    )
+RETURN
+    Result

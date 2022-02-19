@@ -1,0 +1,8 @@
+﻿Sales_PYC_2 =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        PREVIOUSYEAR ( Dates[Date] )
+    )
+)

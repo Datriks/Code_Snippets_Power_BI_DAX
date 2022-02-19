@@ -1,0 +1,23 @@
+﻿Florida_Qty_Sold_of_Product2_or_3 =
+VAR InFlorida =
+    FILTER (
+        Location,
+        Location[State] = "Florida"
+    )
+    // this is the state filter
+VAR ProductFilter =
+    FILTER (
+        'Product',
+        Product[Product Name] = "Product 2"
+            || Product[Product Name] = "Product 3"
+    )
+    // this is the product filter
+RETURN
+    CALCULATE (
+        [Total_Quantity_Sold],
+        InFlorida,
+        ProductFilter
+    )
+    // this is calculating total quantity sold for florida and products 2 or 3
+    
+	

@@ -1,0 +1,17 @@
+﻿Total Transactions =
+COUNTROWS ( Sales )
+
+Total Customers =
+DISTINCTCOUNT ( Sales[Customer ID] )
+
+Customers_(more than one Purchase) =
+COUNTROWS (
+    FILTER (
+        SUMMARIZE (
+            Sales,
+            'Customer Data'[Customer ID],
+            "Total Purchases", [Total Transactions]
+        ),
+        [Total Purchases] >= 2
+    )
+)

@@ -1,0 +1,11 @@
+﻿Sales_Fiscal_PYC =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        PREVIOUSYEAR (
+            Dates[Date],
+            "4-4"
+        )
+    )
+)

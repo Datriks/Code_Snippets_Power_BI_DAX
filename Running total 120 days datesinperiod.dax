@@ -1,0 +1,10 @@
+﻿Running_Total_120D =
+CALCULATE (
+    [Total_Sales_with_Disc],
+    DATESINPERIOD (
+        Date_Table[Date],
+        MAX ( Date_Table[Date] ),
+        -120,
+        DAY
+    )
+)

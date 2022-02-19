@@ -1,0 +1,13 @@
+﻿Sales_PQC =
+IF (
+    [ShowValueforDates]
+        && HASONEVALUE ( Dates[Year Quarter] ),
+    CALCULATE (
+        [Sales_Amount],
+        PARALLELPERIOD (
+            Dates[Date],
+            -1,
+            QUARTER
+        )
+    )
+)

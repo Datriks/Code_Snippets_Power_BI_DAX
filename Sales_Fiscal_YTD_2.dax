@@ -1,0 +1,9 @@
+﻿Sales_Fiscal_YTD_2 =
+IF (
+    [ShowValueforDates],
+    TOTALYTD (
+        [Sales_Amount],
+        Dates[Date],
+        "6-30"
+    )
+)

@@ -1,0 +1,11 @@
+﻿Sales_MOM =
+VAR SalesCurrentPeriod = [Sales_Amount]
+VAR SalesPreviousPeriod = [Sale_PM]
+VAR Result =
+    IF (
+        NOT ISBLANK ( SalesCurrentPeriod )
+            && NOT ISBLANK ( SalesPreviousPeriod ),
+        SalesCurrentPeriod - SalesPreviousPeriod
+    )
+RETURN
+    Result

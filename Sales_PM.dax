@@ -1,0 +1,15 @@
+﻿Sales_PM =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        CALCULATETABLE (
+            DATEADD (
+                Dates[Date],
+                -1,
+                MONTH
+            ),
+            Dates[DateWithSales] = TRUE
+        )
+    )
+)

@@ -1,0 +1,14 @@
+
+
+(text as text)=>
+let
+x = Text.Split(text," "),
+y = List.Select(x, each _<>""),
+z = Text.Combine(y," ")
+in
+z
+
+
+
+
+—

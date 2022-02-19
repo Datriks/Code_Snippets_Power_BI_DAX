@@ -1,0 +1,6 @@
+﻿Top 5 Customers =
+CALCULATE (
+    [Total Sales],
+    TOPN ( 5, ALL ( 'Customer Data'[Customer Name] ), [Total Sales], ASC ),
+    VALUES ( 'Customer Data'[Customer Name] )
+)

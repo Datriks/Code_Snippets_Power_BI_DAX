@@ -1,0 +1,7 @@
+﻿Sales_POP_% =
+SWITCH (
+    TRUE,
+    ISINSCOPE ( Dates[Year Month] ), [Sales_MOM_%],
+    ISINSCOPE ( Dates[Year Quarter] ), [Sales_QOQ_%],
+    ISINSCOPE ( Dates[Year] ), [%_YOY]
+)

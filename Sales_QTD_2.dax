@@ -1,0 +1,8 @@
+﻿Sales_QTD_2 =
+IF (
+    [ShowValueforDates],
+    TOTALQTD (
+        [Sales_Amount],
+        Dates[Date]
+    )
+)

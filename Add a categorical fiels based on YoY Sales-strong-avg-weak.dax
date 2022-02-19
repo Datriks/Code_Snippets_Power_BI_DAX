@@ -1,0 +1,11 @@
+﻿EVALUATE
+{
+CALCULATE (
+    SELECTEDVALUE ( 'Product Group'[Growth Group] ),
+    FILTER (
+        'Product Group',
+        [YOY Sales Growth] > 'Product Group'[Min]
+            && [YOY Sales Growth] <= 'Product Group'[Max]
+    )
+)
+}

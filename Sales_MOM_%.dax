@@ -1,0 +1,1 @@
+﻿Sales_MOM_% = DIVIDE([Sales_MOM],[Sales_PM],0)

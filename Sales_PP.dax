@@ -1,0 +1,7 @@
+﻿Sales_PP =
+SWITCH (
+    TRUE,
+    ISINSCOPE ( Dates[Year Month] ), [Sales_PM],
+    ISINSCOPE ( Dates[Year Quarter] ), [Sales_PQ],
+    ISINSCOPE ( Dates[Year] ), [Sales_PY]
+)

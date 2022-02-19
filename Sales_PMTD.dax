@@ -1,0 +1,15 @@
+﻿Sales_PMTD =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_MTD],
+        CALCULATETABLE (
+            DATEADD (
+                Dates[Date],
+                -1,
+                MONTH
+            ),
+            Dates[DateWithSales] = TRUE
+        )
+    )
+)

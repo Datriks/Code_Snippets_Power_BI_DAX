@@ -1,0 +1,17 @@
+﻿Product_Group(Sales) =
+EVALUATE
+{
+CALCULATE (
+    [Total Sales],
+    FILTER (
+        VALUES ( 'Product'[Product Name] ),
+        COUNTROWS (
+            FILTER (
+                'Product Group',
+                [YOY Sales Growth] > 'Product Group'[Min]
+                    && [YOY Sales Growth] <= 'Product Group'[Max]
+            )
+        ) > 0
+    )
+)
+}

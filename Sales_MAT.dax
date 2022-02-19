@@ -1,0 +1,13 @@
+﻿Sales_MAT =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        DATESINPERIOD (
+            Dates[Date],
+            MAX ( Dates[Date] ),
+            -1,
+            YEAR
+        )
+    )
+)

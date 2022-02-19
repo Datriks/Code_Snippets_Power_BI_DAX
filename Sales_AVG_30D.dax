@@ -1,0 +1,31 @@
+﻿Sales_AVG_30D =
+VAR Period30D =
+    CALCULATETABLE (
+        DATESINPERIOD (
+            Dates[Date],
+            MAX ( Dates[Date] ),
+            -30,
+            DAY
+        ),
+        Dates[DateWithSales] = TRUE
+    )
+VAR FirstDayWithData =
+    CALCULATE (
+        MIN ( Sales[Order Date] ),
+        REMOVEFILTERS ()
+    )
+VAR firstDayInPeriod =
+    MINX (
+        Period30D,
+        Dates[Date]
+    )
+VAR Result =
+    IF (
+        FirstDayWithData <= FirstDayInPeriod,
+        AVERAGEX (
+            Period30D,
+            [Sales_Amount]
+        )
+    )
+RETURN
+    Result

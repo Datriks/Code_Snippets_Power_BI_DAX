@@ -1,0 +1,16 @@
+﻿Sale_YTD_day_of_Week =
+IF (
+    [ShowValueforDates],
+    IF (
+        ISFILTERED ( Dates[Day of Week] ),
+        CALCULATE (
+            [Sales_Amount],
+            DATESYTD ( dates[Date] ),
+            VALUES ( Dates[Day of Week] )
+        ),
+        CALCULATE (
+            [Sales_Amount],
+            DATESYTD ( dates[Date] )
+        )
+    )
+)

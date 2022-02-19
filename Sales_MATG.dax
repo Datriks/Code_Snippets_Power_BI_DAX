@@ -1,0 +1,11 @@
+﻿Sales_MATG =
+VAR ValueCurrentPeriod = [Sales_MAT]
+VAR ValuePreviousPeriod = [Sales_PYMAT]
+VAR Result =
+    IF (
+        NOT ISBLANK ( ValueCurrentPeriod )
+            && ( ValuePreviousPeriod ),
+        ValueCurrentPeriod - ValuePreviousPeriod
+    )
+RETURN
+    Result

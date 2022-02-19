@@ -1,0 +1,11 @@
+﻿Profit Margin LQ =
+CALCULATE ( [% Profit Margin], DATEADD ( Dates[Date], -1, QUARTER ) )
+
+Profit Margin Growth =
+[% Profit Margin] - [Profit Margin LQ]
+
+Top_5Sales_Persons_with_Profit_Margin = 
+	CALCULATE ([Profit Margin Growth],
+		TOPN ( 5, 
+			ALL ('Sales Person'[Salesperson Name] ),[Profit Margin Growth], Desc ),
+				VALUES ( 'Sales Person'[Salesperson Name] )

@@ -1,0 +1,8 @@
+﻿Sales_YTD_2 =
+IF (
+    [ShowValueforDates],
+    TOTALYTD (
+        [Sales_Amount],
+        Dates[Date]
+    )
+)

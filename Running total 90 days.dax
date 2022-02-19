@@ -1,0 +1,11 @@
+﻿Running_Total_90D =
+CALCULATE (
+    [Total_Sales_with_Disc],
+    FILTER (
+        ALL ( Date_Table ),
+        Date_Table[Date]
+            > MAX ( Date_Table[Date] ) - 90
+            && Date_Table[Date]
+                <= MAX ( Date_Table[Date] )
+    )
+)

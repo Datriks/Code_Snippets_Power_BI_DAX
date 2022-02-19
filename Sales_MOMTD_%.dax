@@ -1,0 +1,5 @@
+﻿Sales_MOMTD_% =
+DIVIDE (
+    [Sales_MOMTD],
+    [Sales_PMTD]
+)

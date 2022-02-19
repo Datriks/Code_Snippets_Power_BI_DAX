@@ -1,0 +1,15 @@
+﻿Sales_PQ =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        CALCULATETABLE (
+            DATEADD (
+                dates[Date],
+                -1,
+                QUARTER
+            ),
+            dates[DateWithSales] = TRUE
+        )
+    )
+)

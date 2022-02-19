@@ -1,0 +1,13 @@
+﻿Florida_Qty_Sold_of_Product2_or_3 =
+CALCULATE (
+    SUM ( Sales[Quantity] ),
+    FILTER (
+        Location,
+        Location[State] = "Florida"
+    ),
+    FILTER (
+        'Product',select * from $SYSTEM.DISCOVER_PROPERTIES
+        'Product'[Product Name] = "Product 2"
+            || 'Product'[Product Name] = "Product 3"
+    )
+)

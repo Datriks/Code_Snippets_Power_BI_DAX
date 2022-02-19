@@ -1,0 +1,4 @@
+﻿ProfitMarginLY = 
+	CALCULATE ( 
+		[% Profit Margin], 
+			SAMEPERIODLASTYEAR ( Dates[Date] ))

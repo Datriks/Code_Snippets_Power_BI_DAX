@@ -1,0 +1,49 @@
+﻿//Scen4: find how to cross sell your product
+// When ordering one product what would be the most likely second product to be ordered?
+
+2nd Product List =
+SUMMARIZE ( 'Product', 'Product'[Product Sort Index], 'Product'[Product Name] )
+
+// Create new column in sales table
+
+Product Sales Index = RELATED('Product'[Product Sort Index])
+
+// Create a set of customers that bought one product
+
+Customesr Purchases =
+VAR CustomerSet = VALUES ( Sales[Customer ID] ) RETURN COUNTROWS ( Customerset )
+
+// Create a set of Customers that bought both Products
+
+Purchase Both Products =
+VAR Initial_Purchase =
+    VALUES ( Sales[Customer ID] )
+VAR Comparison_Purchase =
+    CALCULATETABLE (
+        VALUES ( Sales[Customer ID] ),
+        ALL ( 'Product' ),
+        TREATAS (
+            VALUES ( '2nd Product List'[Product Sort Index] ),
+            Sales[Product Sales Index]
+        )
+    )
+RETURN
+    IF (
+        SELECTEDVALUE ( 'Product'[Product Name] )
+            = SELECTEDVALUE ( '2nd Product List'[Product Name] ),
+        BLANK (),
+        COUNTROWS ( INTERSECT ( Initial_Purchase, Comparison_Purchase ) )
+    )
+
+// Create Percentage representation
+
+% Purchased_Both =
+DIVIDE ( [Purchase Both Products], [Customers_Purchases], BLANK () )
+
+
+
+
+
+
+
+

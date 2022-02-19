@@ -1,0 +1,5 @@
+﻿Sales_YTDOPY_% =
+DIVIDE (
+    [Sales_YTDOPY],
+    [Sales_PYC]
+)

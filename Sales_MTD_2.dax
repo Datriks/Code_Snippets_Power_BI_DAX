@@ -1,0 +1,8 @@
+﻿Sales_MTD_2 =
+IF (
+    [ShowValueforDates],
+    TOTALMTD (
+        [Sales_Amount],
+        dates[Date]
+    )
+)

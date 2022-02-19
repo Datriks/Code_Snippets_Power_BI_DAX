@@ -1,0 +1,8 @@
+﻿Sales YTD = 
+IF ( 
+    [ShowValueForDates], 
+    CALCULATE ( 
+        [Sales Amount], 
+        DATESYTD ( 'Date'[Date] ) 
+    ) 
+)

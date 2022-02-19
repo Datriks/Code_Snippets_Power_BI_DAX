@@ -1,0 +1,29 @@
+﻿Growth Grouping =
+CALCULATE (
+    [YOY Sales Growth],
+    FILTER (
+        VALUES ( 'Customer Data'[Customer Name] ),
+        COUNTROWS (
+            FILTER (
+                'Customer Sales Group',
+                [Sales_LY] >= 'Customer Sales Group'[Min]
+                    && [Sales_LY] < 'Customer Sales Group'[Max]
+            )
+        ) > 0
+    )
+)
+
+Growth Grouping Sales Amount =
+CALCULATE (
+    [Total Sales],
+    FILTER (
+        VALUES ( 'Customer Data'[Customer Name] ),
+        COUNTROWS (
+            FILTER (
+                'Customer Sales Group',
+                [Sales_LY] >= 'Customer Sales Group'[Min]
+                    && [Sales_LY] < 'Customer Sales Group'[Max]
+            )
+        ) > 0
+    )
+)

@@ -1,0 +1,11 @@
+﻿ShowValueforDates =
+VAR LastDateWithData =
+    CALCULATE (
+        MAX ( 'Sales'[Order Date] ),
+        REMOVEFILTERS ()
+    )
+VAR FirstDateVisible =
+    MIN ( Dates[Date] )
+VAR Result = FirstDateVisible <= LastDateWithData
+RETURN
+    Result

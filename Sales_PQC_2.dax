@@ -1,0 +1,9 @@
+﻿Slaes_PQC_2 =
+IF (
+    [ShowValueforDates]
+        && HASONEVALUE ( Dates[Year Quarter] ),
+    CALCULATE (
+        [Sales_Amount],
+        PREVIOUSQUARTER ( Dates[Date] )
+    )
+)

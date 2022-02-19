@@ -1,0 +1,4 @@
+﻿Profit_LY = 
+	CALCULATE ( 
+		[Total Profit], 
+			SAMEPERIODLASTYEAR ( Dates[Date] ))

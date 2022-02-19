@@ -1,0 +1,15 @@
+﻿Sales_PY =
+IF (
+    [ShowValueforDates],
+    CALCULATE (
+        [Sales_Amount],
+        CALCULATETABLE (
+            DATEADD (
+                Dates[Date],
+                -1,
+                YEAR
+            ),
+            Dates[DateWithSales] = TRUE
+        )
+    )
+)
